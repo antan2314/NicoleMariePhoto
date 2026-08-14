@@ -1,1 +1,21 @@
-/photos-original/
+# PyCharm
+.idea/
+
+# Python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+
+# Secrets — the email API key will live here
+.env
+.env.*
+
+# Full-resolution originals. Keep these out of git: they are large,
+# they change often, and only the optimized copies in site/images
+# are ever served.
+photos-original/
+
+# OS noise
+.DS_Store
+Thumbs.db
