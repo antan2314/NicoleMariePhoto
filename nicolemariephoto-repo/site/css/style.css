@@ -1,0 +1,458 @@
+/* ============================================================
+   Nicole Marie Photo — shared stylesheet
+   Palette, type and layout tokens live in :root.
+   Change a value there and it updates everywhere.
+   ============================================================ */
+
+:root {
+  /* Colour ------------------------------------------------- */
+  --paper: #f1f3f4;   /* page background — cool white */
+  --mist:  #dfe5e8;   /* panels, dividers, image placeholders */
+  --slate: #62727a;   /* secondary text */
+  --ink:   #172026;   /* primary text */
+  --brick: #8f2b26;   /* single accent, sampled from the hero dress */
+
+  /* Type --------------------------------------------------- */
+  --display: "Newsreader", Georgia, serif;
+  --body: "Karla", system-ui, -apple-system, sans-serif;
+
+  --step--1: clamp(0.78rem, 0.76rem + 0.1vw, 0.84rem);
+  --step-0:  clamp(1rem, 0.97rem + 0.15vw, 1.09rem);
+  --step-1:  clamp(1.25rem, 1.18rem + 0.35vw, 1.5rem);
+  --step-2:  clamp(1.6rem, 1.45rem + 0.75vw, 2.15rem);
+  --step-3:  clamp(2.1rem, 1.8rem + 1.5vw, 3.2rem);
+  --step-4:  clamp(2.8rem, 2rem + 4vw, 6rem);
+
+  /* Layout ------------------------------------------------- */
+  --gutter: clamp(1.25rem, 4vw, 4rem);
+  --maxw: 78rem;
+  --measure: 34rem;
+  --rule: 1px solid rgba(23, 32, 38, 0.12);
+}
+
+/* Reset --------------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: var(--step-0);
+  line-height: 1.65;
+  font-weight: 400;
+}
+
+img { max-width: 100%; display: block; }
+
+a { color: inherit; }
+
+h1, h2, h3 {
+  font-family: var(--display);
+  font-weight: 300;
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+  margin: 0;
+}
+
+p { margin: 0 0 1em; max-width: var(--measure); }
+
+:focus-visible {
+  outline: 2px solid var(--brick);
+  outline-offset: 3px;
+}
+
+.skip {
+  position: absolute;
+  left: -9999px;
+}
+.skip:focus {
+  left: var(--gutter);
+  top: 0.75rem;
+  z-index: 20;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 0.5rem 0.9rem;
+}
+
+/* Shared layout ------------------------------------------- */
+.wrap {
+  max-width: var(--maxw);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.band { padding-block: clamp(3.5rem, 9vw, 7.5rem); }
+.band--tight { padding-block: clamp(2.5rem, 6vw, 4.5rem); }
+.band--mist { background: var(--mist); }
+
+/* Eyebrow: used to label a section by what it *is* --------- */
+.eyebrow {
+  font-family: var(--body);
+  font-size: var(--step--1);
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--slate);
+  margin: 0 0 1.25rem;
+}
+
+.lede {
+  font-size: var(--step-1);
+  line-height: 1.5;
+  color: var(--slate);
+}
+
+/* Header --------------------------------------------------- */
+.masthead {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(241, 243, 244, 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: var(--rule);
+}
+
+.masthead__inner {
+  max-width: var(--maxw);
+  margin-inline: auto;
+  padding: 0.9rem var(--gutter);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.wordmark {
+  font-family: var(--display);
+  font-size: var(--step-1);
+  font-weight: 300;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.wordmark em { font-style: italic; color: var(--brick); }
+
+.nav {
+  display: flex;
+  gap: clamp(0.9rem, 2.5vw, 2rem);
+  font-size: var(--step--1);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 500;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+.nav a {
+  text-decoration: none;
+  color: var(--slate);
+  padding-block: 0.25rem;
+  border-bottom: 1px solid transparent;
+}
+.nav a:hover { color: var(--ink); }
+.nav a[aria-current="page"] {
+  color: var(--ink);
+  border-bottom-color: var(--brick);
+}
+
+/* Hero ----------------------------------------------------- */
+.hero {
+  display: grid;
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: end;
+  padding-block: clamp(3rem, 8vw, 6.5rem);
+}
+@media (min-width: 60rem) {
+  .hero { grid-template-columns: 1.05fr 0.95fr; }
+}
+
+.hero__name {
+  font-size: var(--step-4);
+  line-height: 0.92;
+  letter-spacing: -0.03em;
+  text-transform: lowercase;
+  font-weight: 200;
+  margin-bottom: 1.5rem;
+}
+.hero__name em {
+  font-style: italic;
+  color: var(--brick);
+  display: block;
+}
+
+.hero__note {
+  border-top: var(--rule);
+  padding-top: 1.25rem;
+  max-width: 30rem;
+}
+
+/* Image placeholders --------------------------------------- */
+/* Swap each .ph for <img src="images/…" alt="…" loading="lazy"> */
+.ph {
+  background: var(--mist);
+  background-image:
+    repeating-linear-gradient(
+      45deg,
+      rgba(23, 32, 38, 0.04) 0 2px,
+      transparent 2px 14px
+    );
+  display: grid;
+  place-content: center;
+  text-align: center;
+  padding: 1rem;
+  color: var(--slate);
+  font-size: var(--step--1);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.ph b { display: block; font-weight: 600; color: var(--ink); }
+.ph--portrait { aspect-ratio: 4 / 5; }
+.ph--tall     { aspect-ratio: 2 / 3; }
+.ph--land     { aspect-ratio: 3 / 2; }
+.ph--square   { aspect-ratio: 1 / 1; }
+
+/* Portfolio grid ------------------------------------------- */
+/* Two columns with a vertical offset — photos laid on a table,
+   not a rigid grid. Collapses to one column on small screens. */
+.plates {
+  display: grid;
+  gap: clamp(1.5rem, 4vw, 3.5rem);
+}
+@media (min-width: 48rem) {
+  .plates { grid-template-columns: 1fr 1fr; }
+  .plates > *:nth-child(even) { margin-top: clamp(2rem, 7vw, 6rem); }
+}
+
+.plate img { width: 100%; height: auto; display: block; }
+
+.plate figcaption {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  border-top: var(--rule);
+  margin-top: 0.85rem;
+  padding-top: 0.6rem;
+  font-size: var(--step--1);
+  color: var(--slate);
+}
+/* The right-hand caption is the marker of the moment — an age, a
+   date, a class year. It is the fact that dates the picture, and
+   it is what these sessions are actually about. */
+.plate figcaption .marker {
+  font-variant-numeric: tabular-nums;
+  color: var(--brick);
+  white-space: nowrap;
+}
+
+/* Category filter ------------------------------------------ */
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: clamp(2rem, 5vw, 3rem);
+}
+.filters button {
+  font: inherit;
+  font-size: var(--step--1);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: transparent;
+  border: var(--rule);
+  border-radius: 100px;
+  padding: 0.45rem 1rem;
+  color: var(--slate);
+  cursor: pointer;
+}
+.filters button:hover { color: var(--ink); }
+.filters button[aria-pressed="true"] {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--paper);
+}
+
+/* Two-column prose/media split ----------------------------- */
+.split {
+  display: grid;
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: start;
+}
+@media (min-width: 54rem) {
+  .split { grid-template-columns: 0.85fr 1.15fr; }
+  .split--flip > *:first-child { order: 2; }
+}
+
+/* Service cards -------------------------------------------- */
+.tiers {
+  display: grid;
+  gap: clamp(1.25rem, 3vw, 2rem);
+}
+@media (min-width: 50rem) {
+  .tiers { grid-template-columns: repeat(3, 1fr); }
+  .tiers--pair { grid-template-columns: repeat(2, 1fr); max-width: 52rem; }
+}
+
+.tier {
+  background: var(--paper);
+  border: var(--rule);
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+.band--mist .tier { background: var(--paper); }
+.tier h3 { font-size: var(--step-2); }
+.tier__price {
+  font-family: var(--display);
+  font-size: var(--step-1);
+  color: var(--brick);
+  font-variant-numeric: tabular-nums;
+}
+.tier__note {
+  font-size: var(--step--1);
+  color: var(--slate);
+  margin: -0.5rem 0 0;
+}
+
+.tier ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: var(--step--1);
+  color: var(--slate);
+  display: grid;
+  gap: 0.4rem;
+}
+.tier li { padding-left: 1.1rem; position: relative; }
+.tier li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: var(--brick);
+}
+
+/* Buttons -------------------------------------------------- */
+.btn {
+  display: inline-block;
+  font-size: var(--step--1);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 0.85rem 1.6rem;
+  border: 1px solid var(--ink);
+  background: var(--ink);
+  color: var(--paper);
+  cursor: pointer;
+  font-family: var(--body);
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.btn:hover { background: transparent; color: var(--ink); }
+.btn--ghost { background: transparent; color: var(--ink); }
+.btn--ghost:hover { background: var(--ink); color: var(--paper); }
+.btn[disabled] { opacity: 0.5; cursor: progress; }
+
+/* Form ----------------------------------------------------- */
+.form { display: grid; gap: 1.15rem; max-width: 38rem; }
+
+.field { display: grid; gap: 0.35rem; }
+.field label {
+  font-size: var(--step--1);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--slate);
+}
+.field input,
+.field select,
+.field textarea {
+  font: inherit;
+  color: var(--ink);
+  background: var(--paper);
+  border: var(--rule);
+  padding: 0.7rem 0.85rem;
+  border-radius: 0;
+  width: 100%;
+}
+.field textarea { min-height: 9rem; resize: vertical; }
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  outline: 2px solid var(--brick);
+  outline-offset: 1px;
+  border-color: transparent;
+}
+
+.field--pair { display: grid; gap: 1.15rem; }
+@media (min-width: 34rem) {
+  .field--pair { grid-template-columns: 1fr 1fr; }
+}
+
+/* Honeypot — hidden from people, visible to naive bots */
+.hp {
+  position: absolute !important;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.form__status {
+  font-size: var(--step--1);
+  padding: 0.75rem 0.9rem;
+  border-left: 3px solid var(--brick);
+  background: var(--mist);
+}
+.form__status[hidden] { display: none; }
+
+/* Footer --------------------------------------------------- */
+.footer {
+  border-top: var(--rule);
+  padding-block: clamp(2.5rem, 6vw, 4rem);
+  font-size: var(--step--1);
+  color: var(--slate);
+}
+.footer__inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem 2.5rem;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.footer a { text-decoration: none; }
+.footer a:hover { color: var(--ink); text-decoration: underline; }
+.footer ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.4rem; }
+.footer__brand {
+  font-family: var(--display);
+  font-size: var(--step-1);
+  color: var(--ink);
+  font-weight: 300;
+}
+.footer__brand em { font-style: italic; color: var(--brick); }
+
+/* Motion --------------------------------------------------- */
+.rise {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.rise.is-in { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .rise { opacity: 1; transform: none; transition: none; }
+  * { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+}
+
+/* Hero image ----------------------------------------------- */
+.hero__figure { display: block; }
+.hero__figure img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1206 / 1487;
+  object-fit: cover;
+}
+
+/* Environmental portrait ----------------------------------- */
+.portrait { display: block; }
+.portrait img { width: 100%; height: auto; display: block; }

@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact — Nicole Marie Photo, Colorado Springs</title>
+<meta name="description" content="Enquire about an engagement, maternity, newborn or family photography session with Nicole Marie.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,200..400;1,6..72,200..400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="masthead">
+  <div class="masthead__inner">
+    <a class="wordmark" href="index.html">Nicole <em>Marie</em> Photo</a>
+    <nav class="nav" aria-label="Main">
+      <a href="index.html">Home</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Sessions</a>
+      <a href="contact.html" aria-current="page">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="band">
+    <div class="wrap split split--flip">
+
+      <div class="rise">
+        <p class="eyebrow">Contact</p>
+        <h1 style="font-size:var(--step-3);margin-bottom:1.25rem">Tell me about your session</h1>
+        <p class="lede">The more you tell me, the more useful my reply will be. I answer every inquiry, usually within two days.</p>
+        <p style="margin-top:2rem">
+          <strong>Prefer email?</strong><br>
+          <a href="mailto:nicole_lovall@icloud.com">nicole_lovall@icloud.com</a>
+        </p>
+        <p>
+          <strong>Recent work</strong><br>
+          <a href="https://www.instagram.com/_nicolemariephoto_/" rel="me noopener">Instagram</a> &middot;
+          <a href="https://www.facebook.com/nicolemariephoto94" rel="me noopener">Facebook</a>
+        </p>
+      </div>
+
+      <form class="form rise" data-inquiry-form novalidate>
+
+        <!-- Honeypot: hidden from people, filled in by naive bots -->
+        <div class="hp" aria-hidden="true">
+          <label for="botcheck">Leave this empty</label>
+          <input id="botcheck" type="text" name="botcheck" tabindex="-1" autocomplete="off">
+        </div>
+
+        <div class="field">
+          <label for="name">Your name</label>
+          <input id="name" name="name" type="text" required maxlength="100" autocomplete="name">
+        </div>
+
+        <div class="field--pair">
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" required maxlength="150" autocomplete="email">
+          </div>
+          <div class="field">
+            <label for="phone">Phone <span style="text-transform:none;font-weight:400">(optional)</span></label>
+            <input id="phone" name="phone" type="tel" maxlength="30" autocomplete="tel">
+          </div>
+        </div>
+
+        <div class="field--pair">
+          <div class="field">
+            <label for="session_type">Session type</label>
+            <select id="session_type" name="session_type" required>
+              <option value="">Choose one</option>
+              <option>Engagement</option>
+              <option>Maternity</option>
+              <option>Newborn</option>
+              <option>Family</option>
+              <option>Graduation or senior portraits</option>
+              <option>Birthday or event</option>
+              <option>Something else</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="session_format">Format</label>
+            <select id="session_format" name="session_format">
+              <option value="">Not sure yet</option>
+              <option>Mini session (from $75)</option>
+              <option>Full session (from $150)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field--pair">
+          <div class="field">
+            <label for="preferred_date">Date or due date</label>
+            <input id="preferred_date" name="preferred_date" type="date">
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="message">What are you picturing?</label>
+          <textarea id="message" name="message" required maxlength="2000"
+            placeholder="Who's coming, where you'd like to shoot — including if it's outside Colorado — and anything else that matters."></textarea>
+        </div>
+
+        <div class="form__status" data-status hidden role="status" aria-live="polite"></div>
+
+        <div>
+          <button class="btn" type="submit">Send inquiry</button>
+        </div>
+
+      </form>
+
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap footer__inner">
+    <div>
+      <p class="footer__brand">Nicole <em>Marie</em> Photo</p>
+      <p>Engagements, maternity, families &amp; newborns<br>Colorado Springs &amp; beyond</p>
+    </div>
+    <ul>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html">Sessions</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <ul>
+      <li><a href="https://www.instagram.com/_nicolemariephoto_/" rel="me noopener">Instagram</a></li>
+      <li><a href="https://www.facebook.com/nicolemariephoto94" rel="me noopener">Facebook</a></li>
+      <li><a href="mailto:nicole_lovall@icloud.com">Email</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
