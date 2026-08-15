@@ -15,7 +15,7 @@
    ------------------------------------------------------------ */
 const FORM_ENDPOINT = "https://api.web3forms.com/submit";
 const USE_WEB3FORMS = true;
-const ACCESS_KEY = "PASTE_YOUR_WEB3FORMS_ACCESS_KEY_HERE";
+const ACCESS_KEY = "35929a17-586b-479d-8445-f95876be57bf";
 
 /* ---------- Scroll reveal ---------------------------------- */
 (function reveal() {
