@@ -19,3 +19,8 @@ photos-original/
 # OS noise
 .DS_Store
 Thumbs.db
+
+# SQLite database and its write-ahead log sidecars
+app.db
+app.db-wal
+app.db-shm
