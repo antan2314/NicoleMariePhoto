@@ -1,6 +1,6 @@
-from base import Base
-from adminTable import Admin
-from auditTable import AuditLog
+from db.base import Base
+from db.adminTable import Admin
+from db.auditTable import AuditLog
 
 from sqlalchemy import create_engine
 

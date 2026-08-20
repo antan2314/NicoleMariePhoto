@@ -5,7 +5,7 @@ from datetime import datetime
 from sqlalchemy import String, DateTime, ForeignKey, func, Enum
 from sqlalchemy.orm import Mapped, mapped_column, DeclarativeBase, validates
 
-from base import Base
+from db.base import Base
 
 class AuditEvent(enum.Enum):
     ADMIN_CREATED = 'admin_created'

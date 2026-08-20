@@ -1,7 +1,7 @@
 from datetime import datetime
 from sqlalchemy import String, DateTime, ForeignKey, func
 from sqlalchemy.orm import Mapped, mapped_column, DeclarativeBase, validates
-from base import Base
+from db.base import Base
 
 class Admin(Base):
     __tablename__ = 'admin'
