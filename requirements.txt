@@ -1,7 +1,11 @@
+argon2==0.1.10
 argon2-cffi==25.1.0
 argon2-cffi-bindings==26.1.0
 cffi==2.1.1
+dnspython==2.8.0
+email-validator==2.3.0
 greenlet==3.5.5
+idna==3.19
 pycparser==3.0
 SQLAlchemy==2.0.52
 typing_extensions==4.16.0
