@@ -6,7 +6,7 @@ from db.auditTable import AuditLog, AuditEvent
 from security.hashing import hash_password
 from sqlalchemy import select
 
-def get_admin_email():
+def get_admin_email() -> str :
     # Loops until the operator supplies the same valid address twice; any bad
     # or mismatched entry just restarts the prompt rather than aborting.
     while True:
@@ -34,7 +34,7 @@ def get_admin_email():
             continue
 
 
-def get_admin_pass():
+def get_admin_pass() -> str:
     # Same confirm-twice loop as the email prompt. getpass keeps the typed
     # password off the screen and out of the terminal's history.
     while True:
@@ -48,12 +48,29 @@ def get_admin_pass():
             print("Password did not match, try again")
             continue
 
+
 def main():
-    # Collects and confirms the two credentials. Nothing is written to the
-    # database yet - the Session/Admin/AuditLog/hash_password imports above
-    # are for the persistence step that still has to be added here.
+    # Collects and confirms the two credentials, then creates the admin and
+    # its ADMIN_CREATED audit entry. An email that already exists is refused
+    # before anything is hashed or written.
     email = get_admin_email()
     password = get_admin_pass()
+
+    with Session() as session:
+        existing = session.scalars(select(Admin).where(Admin.email == email)).first()
+        if existing:
+            print("Email already exists")
+            return
+
+        # flush() sends the INSERT so admin.id is assigned for the audit row;
+        # the single commit() then saves both rows together or neither.
+        hash_admin_pass = hash_password(password)
+        admin = Admin(email=email, password_hash= hash_admin_pass)
+        session.add(admin)
+        session.flush()
+        audit_log = AuditLog(admin_id=admin.id, admin_email=email, actor=getpass.getuser(), source="cli", event=AuditEvent.ADMIN_CREATED)
+        session.add(audit_log)
+        session.commit()
 
 
 if __name__ == "__main__":

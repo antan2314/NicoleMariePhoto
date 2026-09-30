@@ -22,5 +22,8 @@ class AuditLog(Base):
     admin_id: Mapped[int | None] = mapped_column(ForeignKey("admin.id"))
     admin_email: Mapped[str] = mapped_column(String(320))
     actor: Mapped[str] = mapped_column(String(50))
+    # Interface the event came through: "cli", "web", or "seed". Fixed set -
+    # new callers reuse these exact spellings rather than inventing variants,
+    # since nothing at the database level enforces it.
     source: Mapped[str] = mapped_column(String(200))
     event: Mapped[AuditEvent] = mapped_column(Enum(AuditEvent))
