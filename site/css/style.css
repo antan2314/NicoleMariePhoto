@@ -105,6 +105,42 @@ p { margin: 0 0 1em; max-width: var(--measure); }
   color: var(--slate);
 }
 
+/* Promo banner (injected by main.js inside its date window) - */
+.promo {
+  background: var(--brick);
+  color: var(--paper);
+  font-size: var(--step--1);
+  letter-spacing: 0.04em;
+}
+.promo__inner {
+  max-width: var(--maxw);
+  margin-inline: auto;
+  padding: 0.55rem var(--gutter);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+.promo a { text-decoration: none; text-align: center; }
+.promo a:hover { text-decoration: underline; }
+.promo :focus-visible { outline-color: var(--paper); }
+.promo__close {
+  font: inherit;
+  font-size: 1.1rem;
+  line-height: 1;
+  background: transparent;
+  border: 0;
+  color: inherit;
+  cursor: pointer;
+  padding: 0.2rem 0.4rem;
+  opacity: 0.8;
+}
+.promo__close:hover { opacity: 1; }
+
+/* Booking embed (holiday.html) ----------------------------- */
+.booking { max-width: 52rem; margin-top: 1.5rem; }
+.booking__cal { width: 100%; min-height: 600px; }
+
 /* Header --------------------------------------------------- */
 .masthead {
   position: sticky;

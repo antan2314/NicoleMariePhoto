@@ -17,6 +17,61 @@ const FORM_ENDPOINT = "https://api.web3forms.com/submit";
 const USE_WEB3FORMS = true;
 const ACCESS_KEY = "bd0f7bb1-fd29-4d04-9cdd-aad9e3315eec";
 
+/* ------------------------------------------------------------
+   PROMO BANNER
+
+   Shows a strip above the header on every page, but only
+   between START and END (inclusive, local time). Outside that
+   window it never appears, so it retires itself after the
+   season without a redeploy. To run a different promo later,
+   change these four values. Set ENABLED to false to kill it.
+   ------------------------------------------------------------ */
+const PROMO = {
+  ENABLED: true,
+  START: "2026-10-28",
+  END: "2026-12-20",
+  TEXT: "Holiday minis are booking now, starting at $150.",
+  HREF: "holiday.html",
+};
+
+(function promoBanner() {
+  if (!PROMO.ENABLED) return;
+
+  const today = new Date();
+  const start = new Date(`${PROMO.START}T00:00:00`);
+  const end = new Date(`${PROMO.END}T23:59:59`);
+  if (today < start || today > end) return;
+
+  /* No point advertising the page you're already on. */
+  if (location.pathname.endsWith(PROMO.HREF)) return;
+
+  /* Dismissal lasts for this browser tab only. Storage can be
+     blocked (private mode), so every access is guarded. */
+  const KEY = `promo-dismissed:${PROMO.HREF}`;
+  try {
+    if (sessionStorage.getItem(KEY)) return;
+  } catch (_) { /* storage unavailable: just show the banner */ }
+
+  const bar = document.createElement("div");
+  bar.className = "promo";
+  bar.innerHTML = `
+    <div class="promo__inner">
+      <a href="${PROMO.HREF}">${PROMO.TEXT}</a>
+      <button type="button" class="promo__close" aria-label="Dismiss announcement">×</button>
+    </div>`;
+
+  bar.querySelector(".promo__close").addEventListener("click", () => {
+    bar.remove();
+    try { sessionStorage.setItem(KEY, "1"); } catch (_) { /* ignore */ }
+  });
+
+  /* After the skip link, so "Skip to content" stays the first
+     thing a keyboard user reaches. */
+  const skip = document.querySelector(".skip");
+  if (skip) skip.after(bar);
+  else document.body.prepend(bar);
+})();
+
 /* ---------- Scroll reveal ---------------------------------- */
 (function reveal() {
   const targets = document.querySelectorAll(".rise");

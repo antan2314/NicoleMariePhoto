@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Holiday minis — Nicole Marie Photo, Colorado Springs</title>
+<meta name="description" content="Holiday mini sessions in Colorado Springs, starting at $150. Limited dates — book your spot online.">
+
+<!-- Link preview when the page is shared (Instagram, Facebook, texts).
+     og:image must be an absolute URL. Swap in the final holiday photo. -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Holiday minis with Nicole Marie Photo">
+<meta property="og:description" content="Short, festive sessions in Colorado Springs, starting at $150. Limited dates.">
+<meta property="og:url" content="https://nicolemariephoto.net/holiday.html">
+<meta property="og:image" content="https://nicolemariephoto.net/images/fam-01.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,200..400;1,6..72,200..400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="masthead">
+  <div class="masthead__inner">
+    <a class="wordmark" href="index.html">Nicole <em>Marie</em> Photo</a>
+    <nav class="nav" aria-label="Main">
+      <a href="index.html">Home</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Sessions</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ==========================================================
+       PLACEHOLDERS: anything inside [square brackets] is waiting
+       on Nicole. Search this file for "[" to find them all.
+       ========================================================== -->
+
+  <section class="wrap hero">
+    <div>
+      <p class="eyebrow">Holiday minis &middot; [2026 season]</p>
+      <h1 class="hero__name">Holiday<br>minis<em>are back</em></h1>
+      <div class="hero__note">
+        <p class="tier__price">Starting at $150</p>
+        <p class="lede">Short, festive sessions for families, couples and little ones. Pick a time that works, show up in your favorite sweaters, and have your holiday card sorted.</p>
+        <p><a class="btn" href="#book">See open times</a></p>
+      </div>
+    </div>
+    <!-- Swap for the holiday hero photo once Nicole picks one. -->
+    <picture class="hero__figure">
+      <source type="image/webp" srcset="images/fam-01-800.webp 800w, images/fam-01.webp 1206w" sizes="(min-width: 60rem) 45vw, 100vw">
+      <img src="images/fam-01.jpg" srcset="images/fam-01-800.jpg 800w, images/fam-01.jpg 1206w" sizes="(min-width: 60rem) 45vw, 100vw"
+        width="1206" height="1764" fetchpriority="high" decoding="async"
+        alt="A family of four standing together in a meadow beneath a golden aspen, mountains behind them.">
+    </picture>
+  </section>
+
+  <section class="band band--tight">
+    <div class="wrap">
+      <p class="eyebrow rise">The details</p>
+      <div class="tiers">
+        <article class="tier rise">
+          <h3>When</h3>
+          <p>[Dates, e.g. Saturdays in November and early December]</p>
+          <p class="tier__note">Spots are limited and go first come, first served.</p>
+        </article>
+        <article class="tier rise">
+          <h3>Where</h3>
+          <p>[Location or setting]</p>
+        </article>
+        <article class="tier rise">
+          <h3>What you get</h3>
+          <ul>
+            <li>A short, focused mini session</li>
+            <li>Edited images in a private online gallery</li>
+            <li>Print release included</li>
+            <li>[Anything holiday-specific, e.g. styled set]</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="band band--mist" id="book">
+    <div class="wrap">
+      <p class="eyebrow rise">Book a mini</p>
+      <h2 class="rise" style="font-size:var(--step-3);margin-bottom:1rem">Pick your time</h2>
+      <p class="rise">Only open times show below. Once you book, you'll get a confirmation email with the details.</p>
+
+      <!-- ========================================================
+           BOOKING EMBED (Cal.com inline)
+           Shows Nicole's "Holidays Minis" booking link right on
+           the page. To point at a different booking link later,
+           change calLink below to "<username>/<link-slug>".
+           ======================================================== -->
+      <div class="booking rise">
+        <div id="cal-holiday-minis" class="booking__cal"></div>
+        <noscript>
+          <p><a class="btn" href="https://cal.com/nicole-lovall-0dmy2y/holidays-minis">Open the booking calendar</a></p>
+        </noscript>
+      </div>
+      <script type="text/javascript">
+        (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if (typeof namespace === "string") { cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, ["initNamespace", namespace]); } else p(cal, ar); return; } p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+        Cal("init", "holiday-minis", { origin: "https://cal.com" });
+        Cal.ns["holiday-minis"]("inline", {
+          elementOrSelector: "#cal-holiday-minis",
+          calLink: "nicole-lovall-0dmy2y/holidays-minis",
+          layout: "month_view"
+        });
+        Cal.ns["holiday-minis"]("ui", { layout: "month_view" });
+      </script>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap" style="text-align:center">
+      <h2 class="rise" style="font-size:var(--step-3);margin-bottom:1.25rem">Have a question first?</h2>
+      <p class="rise" style="margin-inline:auto">Big group, a tricky date, or not sure a mini is enough? Ask and I'll tell you honestly.</p>
+      <p class="rise" style="margin-inline:auto"><a class="btn btn--ghost" href="contact.html">Ask a question</a></p>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap footer__inner">
+    <div>
+      <p class="footer__brand">Nicole <em>Marie</em> Photo</p>
+      <p>Engagements, maternity, families &amp; newborns<br>Colorado Springs &amp; beyond</p>
+    </div>
+    <ul>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html">Sessions</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <ul>
+      <li><a href="https://www.instagram.com/_nicolemariephoto_/" rel="me noopener">Instagram</a></li>
+      <li><a href="https://www.facebook.com/nicolemariephoto94" rel="me noopener">Facebook</a></li>
+      <li><a href="mailto:nicole_lovall@icloud.com">Email</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
